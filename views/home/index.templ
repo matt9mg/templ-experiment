@@ -1,0 +1,9 @@
+package views_home
+
+import "github.com/matt9mg/templ-experiment/views"
+
+templ Index(title string) {
+    @views.Base(title) {
+        @views_form.Input("text")
+    }
+}

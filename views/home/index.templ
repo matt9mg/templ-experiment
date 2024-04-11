@@ -1,9 +1,36 @@
 package views_home
 
-import "github.com/matt9mg/templ-experiment/views"
+import (
+    "github.com/matt9mg/templ-experiment/views"
+    "github.com/matt9mg/templ-experiment/types"
+    views_form "github.com/matt9mg/templ-experiment/views/form"
+)
+
 
 templ Index(title string) {
     @views.Base(title) {
-        @views_form.Input("text")
+        @views_form.Form(views_form.FormProps{
+            Id: "test",
+            Name: "test",
+            Props: templ.Attributes{
+                "hx-post": "/test",
+                "hx-ext": "json-enc",
+            },
+        }) {
+            @views_form.Input(views_form.InputProps{
+                        Id: "name",
+                        Name: "name",
+                        Type: "text",
+                    })
+            @views_form.Button(views_form.ButtonProps{
+                Type: "submit",
+                Value: "Submit",
+            })
+        }
+
     }
+}
+
+templ Save(t *types.Test) {
+    <h1>Welcome { t.Name } to Templ with HTMX :)</h1>
 }

@@ -1,6 +1,20 @@
 package views_form
 
+type InputProps struct {
+    Type string
+    Class string
+    Id string
+    Name string
+    PlaceHolder string
+}
 
-templ Input(inputType string) {
-   <input type={inputType} />
+
+templ Input(props InputProps) {
+    <input
+        class={props.Class}
+        type={props.Type}
+        id={props.Id}
+        name={props.Name}
+        placeholder={props.PlaceHolder}
+    />
 }

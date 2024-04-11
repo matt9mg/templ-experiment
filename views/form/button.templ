@@ -1,0 +1,11 @@
+package views_form
+
+type ButtonProps struct {
+    Type string
+    Class string
+    Value string
+}
+
+templ Button(buttonProps ButtonProps) {
+    <button type={buttonProps.Type} class={buttonProps.Class}>{buttonProps.Value}</button>
+}

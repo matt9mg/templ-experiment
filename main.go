@@ -9,7 +9,10 @@ import (
 func main() {
 	app := fiber.New()
 
-	app.Get("/", controllers.NewHome().Index)
+	homeController := controllers.NewHome()
+
+	app.Get("/", homeController.Index)
+	app.Post("/test", homeController.Save)
 
 	log.Fatalln(app.Listen(":8000"))
 }

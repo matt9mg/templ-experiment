@@ -1,0 +1,22 @@
+package views_form
+
+type FormProps struct {
+    Id string
+    Name string
+    Method string
+    Action string
+    Props templ.Attributes
+}
+
+templ Form(formProps FormProps) {
+    <form
+        id={formProps.Id}
+        name={formProps.Name}
+        if formProps.Method != "" { method={formProps.Method} }
+        if formProps.Action != "" { action={templ.URL(formProps.Action)} }
+
+        { formProps.Props... }
+    >
+        { children... }
+    </form>
+}

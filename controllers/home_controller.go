@@ -18,7 +18,6 @@ func NewHome() *Home {
 
 func (*Home) Index(ctx fiber.Ctx) error {
 	handler := adaptor.HTTPHandler(templ.Handler(views_home.Index("home")))
-
 	return handler(ctx)
 }
 

@@ -11,6 +11,7 @@ func main() {
 
 	homeController := controllers.NewHome()
 
+	app.Static("/assets", "./assets/src/dist")
 	app.Get("/", homeController.Index)
 	app.Post("/test", homeController.Save)
 

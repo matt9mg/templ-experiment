@@ -1,1 +1,3 @@
 views/**/*_templ.go
+bin
+assets/src/dist
